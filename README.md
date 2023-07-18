@@ -63,6 +63,7 @@ Alternatively, you can set many settings from the command line that you'd like t
 -PinItemsToTaskbar  | TRUE, FALSE (Windows 7 / 8 only!)
 -ForceOpenAppShutdown  | TRUE, FALSE
 -KeepMSI | [Switch]
+-RemoveAllProducts | [Switch]
 -SetFileFormat | [Switch]
 -ChangeArch | [Switch]
 -CleanUpInstallFiles | [Switch]

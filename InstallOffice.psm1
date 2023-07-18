@@ -17,6 +17,7 @@ function Get-XMLFile {
     [Parameter(ParameterSetName = 'NoXML')][ValidateSet('TRUE', 'FALSE')]$PinItemsToTaskbar = 'TRUE',
     [Parameter(ParameterSetName = 'NoXML')][ValidateSet('TRUE', 'FALSE')]$ForceOpenAppShutdown = 'FALSE',
     [Parameter(ParameterSetName = 'NoXML')][Switch]$KeepMSI,
+    [Parameter(ParameterSetName = 'NoXML')][Switch]$RemoveAllProducts,
     [Parameter(ParameterSetName = 'NoXML')][Switch]$SetFileFormat,
     [Parameter(ParameterSetName = 'NoXML')][Switch]$ChangeArch
   )
@@ -52,6 +53,13 @@ function Get-XMLFile {
   }
   else {
     $RemoveMSIString = '<RemoveMSI />'
+  }
+
+  if ($RemoveAllProducts) {
+    $RemoveAllString = "<Remove All=`"TRUE`" />"
+  }
+  else {
+    $RemoveAllString = $Null
   }
 
   if ($SetFileFormat) {
@@ -117,6 +125,7 @@ function Get-XMLFile {
     <Updates Enabled="$EnableUpdates" />
     $AppSettingsString
     $RemoveMSIString
+    $RemoveAllString
   </Configuration>
 "@
 
